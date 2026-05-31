@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Шифровальщик текста | Цезарь, Атбаш (EN/RU)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <h1>Шифровальщик текста</h1>
+
+        <div class="sub">Поддержка латиницы и кириллицы | Шифр Цезаря | Атбаш</div>
+
+        <div class="card">
+            <textarea id="inputText" rows="5" placeholder="Введите сообщение на русском или английском...&#10;Пример: Привет мир!  или  Hello world!"></textarea>
+            
+            <div class="info-panel">
+                <span id="langDetect">Язык: не определён</span>
+                <span id="charCount">Символов: 0</span>
+            </div>
+            
+            <div class="controls-row">
+                <div class="ctrl-group">
+                    <label>Алгоритм</label>
+                    <select id="cipherType">
+                        <option value="caesar">Цезарь (сдвиг)</option>
+                        <option value="atbash">Атбаш (зеркало)</option>
+                    </select>
+                </div>
+                <div class="ctrl-group" id="shiftGroup">
+                    <label>Сдвиг (1-32 для кириллицы, 1-25 для латиницы)</label>
+                    <input type="number" id="shiftValue" value="3" min="1" max="33" step="1">
+                </div>
+                <div class="ctrl-group">
+                    <label>Режим</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="mode" value="encrypt" checked> Зашифровать</label>
+                        <label><input type="radio" name="mode" value="decrypt"> Расшифровать</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button id="processBtn" class="btn-primary">Выполнить</button>
+                <button id="saveBtn">Сохранить результат (.txt)</button>
+                <button id="loadFileBtn" class="btn-file">Загрузить файл</button>
+                <input type="file" id="fileInput" accept=".txt" style="display: none;">
+                <button id="clearBtn" class="btn-clear">Очистить всё</button>
+            </div>
+
+            <div>
+                <label>Результат:</label>
+                <div id="outputArea" class="output-box">(результат появится здесь)</div>
+            </div>
+            
+            <div class="info-hint">
+                Подсказка: программа автоматически определяет язык текста (русский/английский) 
+                и применяет соответствующий алфавит. Неалфавитные символы (цифры, знаки) не изменяются.
+            </div>
+        </div>
+        <footer>Неволин Александр  (Флихтпф Жтлсшжфкч|Съэруцс Яуъфнясыо) | 01-25.ИСИП.ОД.11 (2026г.)</footer>
+    </div>
+    <div id="toastNotification"></div>
+    <script src="script.js"></script>
+</body>
+</html>
