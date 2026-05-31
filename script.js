@@ -106,7 +106,7 @@ const getValidShiftForLanguage = (lang) => {
     let maxShift = 32;
     if (lang === 'en') maxShift = 25;
     else if (lang === 'ru') maxShift = 32;
-    else maxShift = 32; // для mixed используем 33 (обработка каждого символа отдельно)
+    else maxShift = 32; // для mixed используем 32 (обработка каждого символа отдельно)
     
     if (isNaN(shiftNum)) {
         showNotification(`Сдвиг должен быть числом, установлен 3`, true);
