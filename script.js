@@ -286,6 +286,7 @@ const loadFile = () => {
             const content = ev.target.result;
             document.getElementById('inputText').value = content;
             updateLanguageInfo(content);
+            updateShiftMaxHint();
             showNotification(`Файл "${file.name}" загружен. Теперь выберите режим и нажмите "Выполнить".`);
             fileInput.value = '';
         };
@@ -363,10 +364,8 @@ document.addEventListener('DOMContentLoaded', () => {
             shiftValue.value = 3;
         } else if (val < 1) {
             shiftValue.value = 1;
-            showNotification(`Сдвиг скорректирован до 1`, true);
         } else if (val > maxVal) {
             shiftValue.value = maxVal;
-            showNotification(`Сдвиг скорректирован до ${maxVal} (максимум для ${lang === 'en' ? 'английского' : 'данного'} текста)`, true);
         }
     });
     
