@@ -66,8 +66,6 @@ const detectLanguage = (text) => {
     
     if (hasCyrillic && !hasLatin) return 'ru';
     if (hasLatin && !hasCyrillic) return 'en';
-    
-    return 'mixed'; // если поровну или только цифры/знаки
 }
 
 // Проверка, есть ли в тексте хотя бы одна буква
